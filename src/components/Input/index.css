@@ -1,0 +1,27 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 452px;
+  height: 56px;
+  border-radius: 8px;
+  border: 2px solid #7785db;
+  padding: 8px 16px;
+  box-sizing: border-box;
+}
+
+.input-label {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.input {
+  border: none;
+  font-size: 16px;
+  font-family: "Avenir next";
+}
+
+.input:focus {
+  outline: none;
+}
