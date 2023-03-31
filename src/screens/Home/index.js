@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Input } from "../../components";
+import { SAVE_USERNAME_PATH } from "../../services/constants";
 import "./index.css";
 
 export const HomeScreen = () => {
@@ -14,7 +15,7 @@ export const HomeScreen = () => {
       return;
     }
 
-    localStorage.setItem("@Supermaket-List:username", username);
+    localStorage.setItem(SAVE_USERNAME_PATH, username);
     navigate("/List");
   };
 
