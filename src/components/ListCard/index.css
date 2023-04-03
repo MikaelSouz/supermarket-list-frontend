@@ -1,7 +1,77 @@
 .list-card-container {
-  width: 934px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
   height: 58px;
-  background-color: #7785db;
+  background-color: #ffff;
   border-radius: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
+  padding: 0px 12px;
+  box-sizing: border-box;
+  border: 1px solid #7785db;
+  cursor: pointer;
+}
+
+.list-card-container-checked {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 732px;
+  height: 58px;
+  background-color: #f2f4ff;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  padding: 0px 12px;
+  box-sizing: border-box;
+  border: 1px solid #7785db;
+}
+
+.list-card-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+.list-card-text-item-name {
+  font-family: "Avenir Next";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.list-card-text-item-name-checked {
+  font-family: "Avenir Next";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #7785db;
+}
+
+.list-card-text-item-quantity {
+  font-family: "Avenir Next";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.arrow-icon {
+  width: 6px;
+  height: 12px;
+  object-fit: contain;
 }

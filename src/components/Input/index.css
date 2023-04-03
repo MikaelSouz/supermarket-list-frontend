@@ -3,12 +3,13 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 452px;
+  width: 100%;
   height: 56px;
   border-radius: 8px;
   border: 2px solid #7785db;
   padding: 8px 16px;
   box-sizing: border-box;
+  margin-bottom: 16px;
 }
 
 .input-label {

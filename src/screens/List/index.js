@@ -1,11 +1,21 @@
 import { useEffect, useState } from "react";
-import { Button, ListCard } from "../../components";
+import { Button, ListRender, Loader, Modal } from "../../components";
 import { getList } from "../../services/request";
 import "./index.css";
 
 export const ListScreen = () => {
+  const [modalVisible, setModalVisible] = useState(false);
   const [loading, setLoading] = useState(true);
   const [listData, setListData] = useState([]);
+
+  const onClickAddButton = () => {
+    setModalVisible(true);
+  };
+
+  const onClickCloseModal = () => {
+    setModalVisible(false);
+    loadListItems();
+  };
 
   const loadListItems = async () => {
     setLoading(true);
@@ -29,21 +39,17 @@ export const ListScreen = () => {
               alt="supermaket-list-logo"
               className="list-screen-img"
             />
-            <h2>Lista Supermercado</h2>
+            <h2 className="list-screen-header-title">Lista Supermercado</h2>
           </div>
-          <div className="list-button-container">
-            <Button>Adicionar</Button>
+          <div className="list-screen-header-button-container">
+            <Button onClick={onClickAddButton}>Adicionar</Button>
           </div>
         </div>
         <div className="list-screen-list-container">
-          {loading && <h3>Carregando...</h3>}
-          {!loading && listData?.length > 0 ? (
-            listData.map((item) => <ListCard key={item._id} item={item} />)
-          ) : (
-            <h3>Sua lista está vazia!</h3>
-          )}
+          {loading ? <Loader /> : <ListRender list={listData} />}
         </div>
       </div>
+      {modalVisible && <Modal onClose={onClickCloseModal} />}
     </div>
   );
 };
