@@ -7,14 +7,23 @@ export const ListScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [loading, setLoading] = useState(true);
   const [listData, setListData] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const onClickAddButton = () => {
+    setSelectedItem(null);
     setModalVisible(true);
   };
 
   const onClickCloseModal = () => {
     setModalVisible(false);
     loadListItems();
+    setSelectedItem(null);
+  };
+
+  const onEditItem = (item) => {
+    setSelectedItem(item);
+    setModalVisible(true);
+    console.log({ item });
   };
 
   const loadListItems = async () => {
@@ -46,10 +55,16 @@ export const ListScreen = () => {
           </div>
         </div>
         <div className="list-screen-list-container">
-          {loading ? <Loader /> : <ListRender list={listData} />}
+          {loading ? (
+            <Loader />
+          ) : (
+            <ListRender onEdit={onEditItem} list={listData} />
+          )}
         </div>
       </div>
-      {modalVisible && <Modal onClose={onClickCloseModal} />}
+      {modalVisible && (
+        <Modal item={selectedItem} onClose={onClickCloseModal} />
+      )}
     </div>
   );
 };

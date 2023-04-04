@@ -21,3 +21,25 @@ export const createItem = async (item) => {
     return { error };
   }
 };
+
+export const updateItem = async (id, item) => {
+  try {
+    const result = await api.put(`/list-item/${id}`, {
+      ...item,
+    });
+    return result.data;
+  } catch (error) {
+    alert("Erro ao atualizar item, tente novamente!");
+    return { error };
+  }
+};
+
+export const deleteItem = async (id) => {
+  try {
+    const result = await api.delete(`/list-item/${id}`);
+    return result.data;
+  } catch (error) {
+    alert("Erro ao apagar item, tente novamente!");
+    return { error };
+  }
+};
